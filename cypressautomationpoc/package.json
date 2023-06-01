@@ -1,0 +1,31 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "GFX test automation using cypress automation tool",
+  "scripts": {
+    "pretest": "npm run clean:reports",
+    "pretestsmokechrome": "npm run clean:reports",
+    "pretestregedge": "npm run clean:reports",
+    "pretestsan": "npm run clean:reports",
+    "clean:reports": "[ ! -d ./reports/ ] && rm -rf cypress/reports_docker && mkdir cypress/reports_docker",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --env grepTags=core --headed --browser chrome",
+    "testsmokechrome": "cypress run --env grepTags=smoke,grepFilterSpecs=true --headed --browser chrome",
+    "testregedge": "cypress run --env grepTags=reg,grepFilterSpecs=true --headed --browser edge",
+    "testsan": "cypress run --env grepTags=san,grepFilterSpecs=true --headed"
+  },
+  "author": "Rishabh",
+  "license": "Not Applicable",
+  "dependencies": {
+    "@testing-library/cypress": "^8.0.3",
+    "concurrently": "^7.3.0",
+    "cy-verify-downloads": "^0.1.13",
+    "cypress": "^10.7.0",
+    "cypress-grep": "^3.0.3",
+    "cypress-mochawesome-reporter": "^3.2.2",
+    "cypress-xpath": "^2.0.1",
+    "faker": "^5.5.3",
+    "fs": "^0.0.1-security",
+    "typescript": "^4.7.4"
+  }
+}
